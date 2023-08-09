@@ -23,7 +23,8 @@ export class QuizServiceService {
         results: ques.results.map(q => {
           return {
             ...q,
-            options: [q.correct_answer, ...q.incorrect_answers].sort(() => Math.random() - 0.5)
+            options: [q.correct_answer, ...q.incorrect_answers].map(options => ({ sort: Math.random(), value: options }))
+            .sort((one, two) => one.sort - two.sort).map(opt => opt.value)
           }
         })
       })

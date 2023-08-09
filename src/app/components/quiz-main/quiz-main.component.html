@@ -15,7 +15,7 @@
           {{ level.label }}
         </option>
       </select>
-      <button type="submit" id="createBtn" class="create-btn" [disabled]="quizForm.invalid || quizForm.pristine">
+      <button type="submit" id="createBtn" class="create-btn" [disabled]="quizForm.invalid || quizForm.pristine || loader">
         Create
       </button>
     </div>
