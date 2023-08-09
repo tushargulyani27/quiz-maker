@@ -1,0 +1,17 @@
+.score-heading {
+  max-width: 218px;
+  font-weight: 700;
+  padding: 5px 60px;
+}
+
+.score-red {
+  background: #FF0000;
+}
+
+.score-yellow {
+  background: #FFFF00;
+}
+
+.score-green {
+  background: #198754;
+}

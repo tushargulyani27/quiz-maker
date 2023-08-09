@@ -1,0 +1,12 @@
+.category-select,
+.difficulty-select,
+.create-btn {
+  padding: 7px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.category-select,
+.difficulty-select {
+  width: 45%;
+}

@@ -1,0 +1,9 @@
+<section class="top-heading">
+  <h2>RESULTS</h2>
+  <app-quiz-question-answers [isResultPage]="true" [selectedAnswers]="selectedAnswers" [questions]="questions"></app-quiz-question-answers>
+  <span [ngClass]="{'score-red': correctAnswercount<=1, 'score-yellow':  correctAnswercount === 2 || correctAnswercount === 3, 'score-green': correctAnswercount>=4}"
+    class="score-heading" *ngIf="questions.length">
+    You scored {{correctAnswercount}} out of 5
+  </span>
+  <button (click)="newQuiz()" class="quiz-submit-btn">Create a new quiz</button>
+</section>

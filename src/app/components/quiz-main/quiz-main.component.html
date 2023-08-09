@@ -1,0 +1,30 @@
+<section class="top-heading">
+  <h2>QUIZ MAKER</h2>
+
+  <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+    <div class="d-grid">
+      <select id="categorySelect" class="category-select mb-3" formControlName="category">
+        <option value="" disabled>Select a Category</option>
+        <option *ngFor="let category of categories" [ngValue]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+      <select id="difficultySelect" class="difficulty-select mb-3" formControlName="difficulyLevel">
+        <option value="" disabled>Select difficulty</option>
+        <option *ngFor="let level of difficultyLevels" [ngValue]="level.value">
+          {{ level.label }}
+        </option>
+      </select>
+      <button type="submit" id="createBtn" class="create-btn" [disabled]="quizForm.invalid || quizForm.pristine">
+        Create
+      </button>
+    </div>
+  </form>
+  <ng-container *ngIf="loader else quizQuestions">
+    <div class="loader"></div>
+  </ng-container>
+  <ng-template #quizQuestions>
+    <app-quiz-question-answers [isResultPage]="false" [answersFormArray]="answersFormArray" [questions]="questions"></app-quiz-question-answers>
+    <button type="submit" *ngIf="answersFormArray.valid" class="quiz-submit-btn" (click)="submitQuiz()">submit</button>
+  </ng-template>
+</section>

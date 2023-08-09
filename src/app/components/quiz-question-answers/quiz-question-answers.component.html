@@ -1,0 +1,20 @@
+<div class="question-div-section">
+  <ng-container *ngFor="let question of questions; index as i">
+    <div class="question-div" [innerHTML]="question.question">
+    </div>
+    <ng-container *ngFor="let option of question?.options">
+      <ng-container *ngIf="!isResultPage else resultPage">
+        <button class="btn-margin" [ngClass]="{'green' : this.answersFormArray?.value[i] === option}"
+          (click)="optionClick(i, option)" [innerHTML]="option">
+        </button>
+      </ng-container>
+      <ng-template #resultPage>
+        <button class="btn-option-result" [innerHTML]="option"
+          [ngClass]="{'green' : question.correct_answer === option,
+           'red': (this.selectedAnswers[i] !== question.correct_answer) && this.selectedAnswers[i] === option}">
+        </button>
+      </ng-template>
+    </ng-container>
+  </ng-container>
+</div>
+
